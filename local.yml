@@ -24,19 +24,22 @@
       apt:
         name: libreoffice*
         state: absent
-    - copy:
+    - name: install update-headless
+      copy:
         src: files/usr/local/bin/update-headless
         dest: /usr/local/bin/
         owner: root
         group: staff
         mode: 0755
-    - copy:
+    - name: install interfaces
+      copy:
         src: files/etc/network/interfaces
         dest: /etc/network/interfaces
         owner: root
         group: root
         mode: 0644
-    - copy:
+    - name: install hosts
+      copy:
         src: files/etc/hosts
         dest: /etc/hosts
         owner: root
