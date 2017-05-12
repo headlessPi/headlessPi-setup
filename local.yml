@@ -25,12 +25,25 @@
         name: libreoffice*
         state: absent
     - copy:
-        src: files/update-headless
+        src: files/usr/local/bin/update-headless
         dest: /usr/local/bin/
         owner: root
         group: staff
         mode: 0755
-    - git:
+    - copy:
+        src: files/etc/network/interfaces
+        dest: /etc/network/interfaces
+        owner: root
+        group: root
+        mode: 0644
+    - copy:
+        src: files/etc/hosts
+        dest: /etc/hosts
+        owner: root
+        group: root
+        mode: 0644
+    - name: install headlessPi
+      git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
         dest: /usr/local/headlessPi/app
         version: v0.0.1
