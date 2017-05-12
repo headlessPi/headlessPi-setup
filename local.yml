@@ -30,3 +30,7 @@
         owner: root
         group: staff
         mode: 0755
+    - git:
+        repo: 'https://github.com/headlessPi/headlessPi.git'
+        dest: /usr/local/headlessPi/app
+        version: v0.0.1
