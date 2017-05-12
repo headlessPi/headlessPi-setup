@@ -12,3 +12,15 @@
       apt:
         name: hostapd
         update_cache: yes
+    - name: Remove builtin node-red
+      apt:
+        name: nodered
+        state: absent
+    - name: Remove builtin wolfram engine
+      apt:
+        name: wolfram-engine
+        state: absent
+    - name: Remove builtin libreoffice
+      apt:
+        name: libreoffice*
+        state: absent
