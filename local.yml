@@ -24,3 +24,9 @@
       apt:
         name: libreoffice*
         state: absent
+    - copy:
+      src: files/update-headless
+      dest: /usr/local/bin/
+      owner: root
+      group: staff
+      mode: 0755
