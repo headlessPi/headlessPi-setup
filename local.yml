@@ -1,0 +1,14 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: headlessPi
+  sudo: yes
+  gather_facts: yes
+  tasks:
+    - name: Update repositories cache and install dnsmasq
+      apt:
+        name: dnsmasq
+        update_cache: yes
+    - name: Update repositories cache and install hostapd
+      apt:
+        name: hostapd
+        update_cache: yes

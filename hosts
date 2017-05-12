@@ -1,0 +1,2 @@
+[headlessPi]
+localhost ansible_connection=local
