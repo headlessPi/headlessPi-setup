@@ -45,6 +45,20 @@
         owner: root
         group: root
         mode: 0644
+    - name: install create-uap0
+      copy:
+        src: files/usr/local/bin/create-uap0
+        dest: /usr/local/bin/create-uap0
+        owner: root
+        group: root
+        mode: 0755
+    - name: install uap0 startup script
+      copy:
+        src: files/etc/rc5.d/S04uap0
+        dest: /etc/rc5.d/S04uap0
+        owner: root
+        group: root
+        mode: 0755
     - name: install headlessPi
       git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
