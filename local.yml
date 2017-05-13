@@ -52,6 +52,13 @@
         owner: root
         group: root
         mode: 0755
+    - name: install nodesource apt list
+      copy:
+        src: files/etc/apt/sources.list.d/nodesource.list
+        dest: /etc/apt/sources.list.d/nodesource.list
+        owner: root
+        group: root
+        mode: 0644
     - name: install uap0 startup script
       copy:
         src: files/etc/rc5.d/S04uap0
