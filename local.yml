@@ -67,9 +67,7 @@
         group: root
         mode: 0755
     - name: enable uap0 startup script
-      service:
-        name: create-uap0
-        enabled: yes
+      shell: update-rc.d create-uap0 defaults
     - name: install headlessPi
       git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
