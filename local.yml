@@ -72,5 +72,5 @@
         dest: /usr/local/headlessPi/app
         version: v0.0.1
     - name: Install packages based on package.json.
-        npm:
-          path: /usr/local/headlessPi/app
+      npm:
+        path: /usr/local/headlessPi/app
