@@ -8,10 +8,12 @@
       apt:
         name: dnsmasq
         update_cache: yes
+        cache_valid_time: 3600
     - name: Update repositories cache and install hostapd
       apt:
         name: hostapd
         update_cache: yes
+        cache_valid_time: 3600
     - name: Remove builtin node-red
       apt:
         name: nodered
