@@ -14,6 +14,11 @@
         name: hostapd
         update_cache: yes
         cache_valid_time: 3600
+    - name: Update repositories cache and install hostapd
+      apt:
+        name: pigpio
+        update_cache: yes
+        cache_valid_time: 3600
     - name: Remove builtin node-red
       apt:
         name: nodered
