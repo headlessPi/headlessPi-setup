@@ -68,11 +68,13 @@
         mode: 0644
     - name: install uap0 startup script
       copy:
-        src: files/etc/rc5.d/S04uap0
-        dest: /etc/rc5.d/S04uap0
+        src: files/etc/init.d/create-uap0
+        dest: /etc/init.d/create-uap0
         owner: root
         group: root
         mode: 0755
+    - name: enable uap0 startup script
+        service: name=create-uap0 enabled=yes
     - name: install headlessPi
       git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
