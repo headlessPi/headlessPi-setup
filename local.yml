@@ -14,23 +14,11 @@
         name: hostapd
         update_cache: yes
         cache_valid_time: 3600
-    - name: Update repositories cache and install hostapd
+    - name: Update repositories cache and install pigpio
       apt:
         name: pigpio
         update_cache: yes
         cache_valid_time: 3600
-    - name: Remove builtin node-red
-      apt:
-        name: nodered
-        state: absent
-    - name: Remove builtin wolfram engine
-      apt:
-        name: wolfram-engine
-        state: absent
-    - name: Remove builtin libreoffice
-      apt:
-        name: libreoffice*
-        state: absent
     - name: install update-headless
       copy:
         src: files/usr/local/bin/update-headless
@@ -52,13 +40,25 @@
         owner: root
         group: root
         mode: 0644
-    - name: install nodesource apt list
-      copy:
-        src: files/etc/apt/sources.list.d/nodesource.list
-        dest: /etc/apt/sources.list.d/nodesource.list
-        owner: root
-        group: root
-        mode: 0644
+    - name: Import the NodeSource GPG key into apt
+      apt_key:
+        url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
+        id: "68576280"
+        state: present
+    - name: Add NodeSource deb repository
+      apt_repository:
+        repo: 'deb https://deb.nodesource.com/node_4.x {{ ansible_distribution_release }} main'
+        state: present
+    - name: Remove old Node.js
+      apt:
+        pkg: nodejs=6.9.5-1nodesource1~jessie1
+        state: installed
+        update_cache: yes
+    - name: Install Node.js
+      apt:
+        pkg: nodejs=6.9.5-1nodesource1~jessie1
+        state: installed
+        update_cache: yes
     - name: install uap0 startup script
       copy:
         src: files/etc/init.d/create-uap0
