@@ -11,8 +11,7 @@
 
 dir="/usr/local/headlessPi/app"
 cmd="./bin/headlesspi"
-user="root
-"
+user="root"
 
 name=`basename $0`
 pid_file="/var/run/$name.pid"
