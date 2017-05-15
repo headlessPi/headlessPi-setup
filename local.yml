@@ -17,7 +17,7 @@
     - name: install dnsmasq.conf
       copy:
         src: files/etc/dnsmasq.conf
-        dest: /usr/etc/dnsmasq.conf
+        dest: /etc/dnsmasq.conf
         owner: root
         group: staff
         mode: 0644
