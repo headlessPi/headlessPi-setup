@@ -2,6 +2,10 @@
 # /etc/init.d/start-uap0
 #
 
+if [ ! -f /etc/hostapd/hostapd.conf ]; then
+  cp /etc/hostapd/hostapd.conf.bootstrap /etc/hostapd/hostapd.conf
+fi
+
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)

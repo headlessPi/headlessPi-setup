@@ -46,6 +46,13 @@
         owner: root
         group: root
         mode: 0644
+    - name: install hostapd.conf.bootstrap
+      copy:
+        src: files/etc/hostapd/hostapd.conf.bootstrap
+        dest: /etc/hostapd/hostapd.conf.bootstrap
+        owner: root
+        group: root
+        mode: 0644
     - name: Import the NodeSource GPG key into apt
       apt_key:
         url: https://keyserver.ubuntu.com/pks/lookup?op=get&fingerprint=on&search=0x1655A0AB68576280
