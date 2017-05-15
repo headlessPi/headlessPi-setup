@@ -68,6 +68,15 @@
         mode: 0755
     - name: enable uap0 startup script
       shell: update-rc.d create-uap0 defaults
+    - name: install headlessPi startup script
+      copy:
+        src: files/etc/init.d/headlesspi
+        dest: /etc/init.d/headlesspi
+        owner: root
+        group: root
+        mode: 0755
+    - name: enable headlesspi startup script
+      shell: update-rc.d headlesspi defaults
     - name: restart headlesspi
       service:
         name: headlesspi
@@ -81,12 +90,3 @@
     - name: Install packages based on package.json.
       npm:
         path: /usr/local/headlessPi/app
-    - name: install headlessPi startup script
-      copy:
-        src: files/etc/init.d/headlesspi
-        dest: /etc/init.d/headlesspi
-        owner: root
-        group: root
-        mode: 0755
-    - name: enable headlesspi startup script
-      shell: update-rc.d headlesspi defaults
