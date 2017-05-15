@@ -1,1 +1,1 @@
-sudo ansible-pull -o -C master -d /usr/local/headlessPi/setup -i /usr/local/headlessPi/setup/hosts -U https://github.com/headlessPi/headlessPi-setup.git --extra-vars "upgrade=${1:-false}"
+sudo ansible-pull -o -C master -d /usr/local/headlessPi/setup -i /usr/local/headlessPi/setup/hosts -U https://github.com/headlessPi/headlessPi-setup.git --extra-vars "upgrade_val=${1:-false}"

@@ -2,7 +2,7 @@
 ---
 - hosts: headlessPi
   vars:
-    upgrade: '{{upgrade}}'
+    upgrade: '{{upgrade_val}}'
   sudo: yes
   gather_facts: yes
   tasks:
