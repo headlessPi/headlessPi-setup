@@ -1,10 +1,12 @@
 #!/usr/bin/env ansible-playbook
 ---
 - hosts: headlessPi
+  upgrade: {{upgrade}}
   sudo: yes
   gather_facts: yes
   tasks:
     - name: Update and upgrade apt packages
+      when: upgrade == 'full'
       apt:
         upgrade: safe
         update_cache: yes
