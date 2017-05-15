@@ -49,15 +49,9 @@
       apt_repository:
         repo: 'deb https://deb.nodesource.com/node_6.x {{ ansible_distribution_release }} main'
         state: present
-    - name: Remove old Node.js
-      apt:
-        pkg: nodejs=0.10.29~dfsg-2
-        state: absent
-        update_cache: yes
-        cache_valid_time: 3600
     - name: Install Node.js
       apt:
-        pkg: nodejs=6.9.5-1nodesource1~jessie1
+        name: nodejs
         state: installed
         update_cache: yes
     - name: install uap0 startup script
