@@ -72,7 +72,21 @@
       git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
         dest: /usr/local/headlessPi/app
-        version: v0.0.1
+        version: v0.0.2
+      notify: restart headlesspi
     - name: Install packages based on package.json.
       npm:
         path: /usr/local/headlessPi/app
+    - name: install headlessPi startup script
+      copy:
+        src: files/etc/init.d/headlesspi
+        dest: /etc/init.d/headlesspi
+        owner: root
+        group: root
+        mode: 0755
+    - name: enable uap0 startup script
+      shell: update-rc.d headlesspi defaults
+    - name: restart headlesspi
+      service:
+        name: headlesspi
+        state: started
