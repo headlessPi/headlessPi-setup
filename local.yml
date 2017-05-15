@@ -1,7 +1,7 @@
 #!/usr/bin/env ansible-playbook
 ---
 - hosts: headlessPi
-  upgrade: {{upgrade}}
+  upgrade: '{{upgrade}}'
   sudo: yes
   gather_facts: yes
   tasks:
