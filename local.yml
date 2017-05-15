@@ -14,6 +14,13 @@
         name: dnsmasq
         update_cache: yes
         cache_valid_time: 3600
+    - name: install dnsmasq.conf
+      copy:
+        src: files/etc/dnsmasq.conf
+        dest: /usr/etc/dnsmasq.conf
+        owner: root
+        group: staff
+        mode: 0644
     - name: Update repositories cache and install hostapd
       apt:
         name: hostapd
