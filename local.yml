@@ -4,6 +4,12 @@
   sudo: yes
   gather_facts: yes
   tasks:
+    - name: Update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 3600
     - name: Update repositories cache and install dnsmasq
       apt:
         name: dnsmasq
