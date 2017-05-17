@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Make sure only root can run our script
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
 lockfile=/var/lock/update-headlesspi
 
 if ( set -o noclobber; echo "$$" > "$lockfile") 2> /dev/null; then
