@@ -1,1 +1,16 @@
-sudo ansible-pull -o -C master -d /usr/local/headlessPi/setup -i /usr/local/headlessPi/setup/hosts -U https://github.com/headlessPi/headlessPi-setup.git --extra-vars "upgrade_val=${1:-false}"
+#!/bin/bash
+
+lockfile=/var/lock/update-headlesspi
+
+if ( set -o noclobber; echo "$$" > "$lockfile") 2> /dev/null; then
+
+  trap 'rm -f "$lockfile"; exit $?' INT TERM EXIT
+
+  sudo ansible-pull -o -C master -d /usr/local/headlessPi/setup -i /usr/local/headlessPi/setup/hosts -U https://github.com/headlessPi/headlessPi-setup.git --extra-vars "upgrade_val=${1:-false}"
+
+  # clean up after yourself, and release your trap
+  rm -f "$lockfile"
+  trap - INT TERM EXIT
+else
+  echo "Lock Exists: $lockfile owned by $(cat $lockfile)"
+fi
