@@ -24,4 +24,3 @@ iface uap0 inet static
   netmask 255.255.255.0
   network 10.10.10.0
   broadcast 10.10.10.255
-  gateway 10.10.10.1
