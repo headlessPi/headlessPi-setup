@@ -98,7 +98,7 @@
       git:
         repo: 'https://github.com/headlessPi/headlessPi.git'
         dest: /usr/local/headlessPi/app
-        version: v0.0.10
+        version: v0.0.11
       notify: restart headlesspi
     - name: Install packages based on package.json.
       npm:
