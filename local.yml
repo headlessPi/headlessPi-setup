@@ -74,6 +74,11 @@
         owner: root
         group: root
         state: link
+    - name: Install npm
+      apt:
+        name: npm
+        state: installed
+        update_cache: yes
     - name: install uap0 startup script
       copy:
         src: files/etc/init.d/create-uap0
