@@ -68,6 +68,7 @@
         state: installed
         update_cache: yes
     - name: Set up symlink from node => nodejs
+      file:
         src: /usr/bin/nodejs
         dest: /usr/bin/node
         owner: root
